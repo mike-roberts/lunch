@@ -1,0 +1,19 @@
+<div class="grid">
+    <div class="grid__col14">
+        <p>Please choose a lunch below:</p>
+        <div class="card" ng-repeat="restaurant in restaurants">
+            <div class="card__content card__content--small">
+                <strong class="card-title">{{ restaurant.name }}</strong>
+                <div class="paragraph">
+                    <p>{{ restaurant.description }}</p>
+                </div>
+            </div>
+
+            <div class="card__actions">
+                <button class="btn btn--xl btn--raised btn--fab " ng-if="!restaurant.voted" ng-click="vote(restaurant, 'up')" lx-ripple><i class="mdi mdi--thumb-up"></i></button>
+                <button class="btn btn--xl btn--raised btn--fab " ng-if="!restaurant.voted" ng-click="vote(restaurant, 'down')" lx-ripple><i class="mdi mdi--thumb-down"></i></button>
+                <p ng-if="restaurant.voted">{{ message }}</p>
+            </div>
+        </div>
+    </div>
+</div>
